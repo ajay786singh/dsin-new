@@ -284,10 +284,10 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from) => {
-    if (to.meta.requiredAuth && !sessionStorage.getItem("token")) {
+    if (to.meta.requiredAuth && !localStorage.getItem("token")) {
         return { name: "Login" };
     }
-    if (to.meta.requiredAuth == false && sessionStorage.getItem("token")) {
+    if (to.meta.requiredAuth == false && localStorage.getItem("token")) {
         return { name: "MyAccount" };
     }
 });

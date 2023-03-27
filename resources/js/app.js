@@ -18,7 +18,7 @@ import './asset/js/jquery.js';
 //import jQuery from "jquery";
 //import $ from 'jquery';
 
-import swal from 'sweetalert';
+import swal from 'sweetalert';
 const base_url = import.meta.env.VITE_MY_ENV_VARIABLE;
 const google_client_id = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
@@ -57,6 +57,7 @@ import './asset/js/imagesloaded-pkgd.js';
 /*  import './asset/js/main.js';   */
  import './asset/js/theme-scripts.js';
 import { createPinia } from 'pinia';
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import vue3GoogleLogin from 'vue3-google-login';
 import VueNextSelect from 'vue-next-select'
 import 'vue-next-select/dist/index.min.css'
@@ -84,6 +85,7 @@ const app = createApp(App)
 })
 app.use(router)
 app.use(createPinia())
+createPinia().use(piniaPluginPersistedstate)
 // .use(store)
 app.component('vue-select', VueNextSelect)
 

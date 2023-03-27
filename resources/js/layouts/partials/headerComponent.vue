@@ -681,10 +681,10 @@ export default ({
 	async created() {
 
 		/* 	
-			if (sessionStorage.getItem('token') != null) {
+			if (localStorage.getItem('token') != null) {
 			 axios.get('/api/user', {
 						headers: {
-							Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+							Authorization: 'Bearer ' + localStorage.getItem('token'),
 						},
 	
 					}).then( ({data})=>{
@@ -694,7 +694,7 @@ export default ({
 					  
 					}).catch(error => {
 						if (error.response.status == 500) {
-							sessionStorage.clear();
+							localStorage.clear();
 						   // window.location.href = '/login';
 						   // console.log(error.response.status);
 						}

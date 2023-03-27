@@ -137,7 +137,7 @@ export default {
         await axios
           .get("/api/user", {
             headers: {
-              Authorization: sessionStorage.getItem("token"),
+              Authorization: localStorage.getItem("token"),
             },
           })
           .then((userresponse) => {
@@ -171,7 +171,7 @@ export default {
         await axios
           .get("/api/user", {
             headers: {
-              Authorization: sessionStorage.getItem("token"),
+              Authorization: localStorage.getItem("token"),
             },
           })
           .then((userresponse) => {

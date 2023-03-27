@@ -5,10 +5,10 @@ export const UserStore = defineStore({
     id: 'UserStoreId',
 
     state: () => ({
-        token: sessionStorage.getItem('token') || 0,
+        token: localStorage.getItem('token') || 0,
         authUser:null,
        /*  name:null,
-        email: sessionStorage.getItem('email') || 0, */
+        email: localStorage.getItem('email') || 0, */
       /*   user: {} || 0 */
 
     }),
@@ -25,10 +25,10 @@ export const UserStore = defineStore({
     actions: {
 
         async fetchUser() {
-            if(sessionStorage.getItem('token')){
+            if(localStorage.getItem('token')){
                 const res = await  axios.get('/api/user', {
                     headers: {
-                        Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+                        Authorization: 'Bearer ' + localStorage.getItem('token'),
                     },
     
                 }).then( ({data})=>{
@@ -47,7 +47,7 @@ export const UserStore = defineStore({
         login(email, password) {
             axios.post('/api/login', {
                 headers: {
-                    Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+                    Authorization: 'Bearer ' + localStorage.getItem('token'),
                 },
                 email: email,
                 password: password,
@@ -66,7 +66,7 @@ export const UserStore = defineStore({
           //  return new Promise((resolve, reject) => {
              /*    axios.get('/api/user', {
                     headers: {
-                        Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+                        Authorization: 'Bearer ' + localStorage.getItem('token'),
                     },
                 }).then(res => {
                     this.user = res.data.user;
@@ -81,24 +81,24 @@ export const UserStore = defineStore({
 
         setToken: function (token) {
             this.token = token
-            sessionStorage.setItem('token', token);
+            localStorage.setItem('token', token);
         },
 
 
         /*  setName: function (name) {
             this.name = name
-            sessionStorage.setItem('name', name);
+            localStorage.setItem('name', name);
         },  */
 
         /* setName: function () {
           return "helo";
-            // sessionStorage.setItem('name', name);
+            // localStorage.setItem('name', name);
         }, */
 
 
        /*  setEmail: function (email) {
             this.email = email
-            sessionStorage.setItem('email', email);
+            localStorage.setItem('email', email);
         }, */
 
 
@@ -106,11 +106,11 @@ export const UserStore = defineStore({
             this.token = 0;
             // this.email = 0;
             // this.name = 0;
-            sessionStorage.removeItem('token');
-            // sessionStorage.removeItem('name');
-            // sessionStorage.removeItem('email');
+            localStorage.removeItem('token');
+            // localStorage.removeItem('name');
+            // localStorage.removeItem('email');
 
         }
-    }
-
+    },
+	persist: true
 });

@@ -151,7 +151,7 @@ export default {
 		async getBalance() {
 			await axios.get("/api/transact", {
 				headers: {
-					Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+					Authorization: 'Bearer ' + localStorage.getItem('token'),
 				}
 			}).then(({ data }) => ([this.balance = data.balance]));
 		}
