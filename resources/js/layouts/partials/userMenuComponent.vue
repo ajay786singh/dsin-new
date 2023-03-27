@@ -12,16 +12,18 @@
           <img :src="profile_picture" class="d-none" />
         </span>
       </div>
-      <span class="name mt-3" v-if="authUser">{{ authUser.first_name }}</span>
-      <p class="full_center">{{ user_role }} <br /></p>
-      <br />
-      <p class="full_center" v-if="status == 'Rejected'">
-        Dealer Request Status : {{ status }} Comment:{{ comment }}
-      </p>
-      <p class="full_center" v-if="status != 'Rejected'">
-        Dealer Request Status : {{ status }}
-      </p>
-      <br />
+      <div class="name mt-3" v-if="authUser">{{ authUser.first_name }}</div>
+      <div class="roles mt-10">
+          <span class="badge bg-info" v-if="user_role.includes('Dealer')==true">Dealer</span>
+          <span class="badge bg-info" v-else>Customer</span>
+      </div>
+        <p class="full_center" v-if="user_role.includes('Dealer')==false && status == 'Rejected'">
+          Dealer Request Status : {{ status }} Comment:{{ comment }}
+        </p>
+        <p class="full_center" v-if="user_role.includes('Dealer')==false && status == 'approved'">
+          Dealer Request Status : {{ status }}
+        </p>
+        
       <!-- <p class="full_center" v-if="message.Unauthenticated">
         <router-link
           :to="{ name: 'Login' }"
@@ -36,9 +38,12 @@
         >
         <router-link
           :to="{ name: 'DealerRegistration' }"
-          class="btn1 btn-dark mt-2 ms-2"
-          >Become Dealer</router-link
-        >
+          class="btn1 btn-dark mt-2 ms-2" v-if="status==''"
+          >Become Dealer</router-link>
+          <router-link
+          :to="{ name: 'DealerRegistration' }"
+          class="btn1 btn-dark mt-2 ms-2" v-if="status=='Rejected'"
+          >Resubmit Dealer Profile</router-link>
       </div>
     </div>
 
@@ -60,10 +65,10 @@
         <li>
           <a href=""><i class="bi bi-map"></i> Address</a>
         </li>
-        <li v-if="user_role != 'Customer'">
+        <li v-if="user_role.includes('Dealer')">
           <a href=""><i class="bi bi-diagram-3"></i> Manage Branches</a>
         </li>
-        <li v-if="user_role != 'Customer'">
+        <li v-if="user_role.includes('Dealer')">
           <router-link :to="{ name: 'UserVendingMachines' }"
             ><i class="bi bi-gear"></i> Vending Machines</router-link
           >
@@ -132,7 +137,7 @@ export default {
         await axios
           .get("/api/user", {
             headers: {
-              Authorization: sessionStorage.getItem("token"),
+              Authorization: localStorage.getItem("token"),
             },
           })
           .then((userresponse) => {
@@ -148,7 +153,7 @@ export default {
                 let role = res.data.roles;
                 // console.log(role);
                 const roleArray = JSON.parse(role);
-                this.user_role = roleArray[0];
+                this.user_role = roleArray;
               });
           });
       } catch (error) {
@@ -166,7 +171,7 @@ export default {
         await axios
           .get("/api/user", {
             headers: {
-              Authorization: sessionStorage.getItem("token"),
+              Authorization: localStorage.getItem("token"),
             },
           })
           .then((userresponse) => {
@@ -188,7 +193,7 @@ export default {
                 // console.log(recomment);
                 const roleArray = JSON.parse(role);
                 // const statusArray = JSON.parse(status);
-                this.user_role = roleArray[0];
+                this.user_role = roleArray;
                 if (status == "rejected") {
                   this.status = "Rejected";
                   this.comment = recomment;

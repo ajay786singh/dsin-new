@@ -11,10 +11,10 @@ export default {
     },
     methods: {
         TokencheckAndLogout() {
-            if (sessionStorage.getItem('token') != null) {
+            if (localStorage.getItem('token') != null) {
                 axios.get('/api/user', {
                     headers: {
-                        Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+                        Authorization: 'Bearer ' + localStorage.getItem('token'),
                     },
 
                 }).then( ({data})=>{

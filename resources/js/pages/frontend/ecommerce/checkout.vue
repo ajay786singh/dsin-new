@@ -389,8 +389,8 @@ export default {
   },
   mounted() {
     
-    this.isLoggedIn = sessionStorage.getItem("token") != null;
-    if(sessionStorage.getItem('token')){
+    this.isLoggedIn = localStorage.getItem("token") != null;
+    if(localStorage.getItem('token')){
       this.getUser();
       this.getbilling_detail();
     }
@@ -432,11 +432,11 @@ export default {
 
   methods: {
     async getUser() {
-      console.log(sessionStorage.getItem('token'));
-      if(sessionStorage.getItem('token')){
+      console.log(localStorage.getItem('token'));
+      if(localStorage.getItem('token')){
           const res = await  axios.get('/api/user', {
               headers: {
-                  Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+                  Authorization: 'Bearer ' + localStorage.getItem('token'),
               },
 
           }).then( ({data})=>{
@@ -573,7 +573,7 @@ async getbilling_detail() {
         await axios
           .get("/api/user", {
             headers: {
-              Authorization: sessionStorage.getItem("token"),
+              Authorization: localStorage.getItem("token"),
             },
           })
           .then((userresponse) => {

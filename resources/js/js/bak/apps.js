@@ -53,7 +53,7 @@
 
     function f() {
         var o, e = document.documentElement.getAttribute("data-layout"),
-            t = sessionStorage.getItem("defaultAttribute"),
+            t = localStorage.getItem("defaultAttribute"),
             t = JSON.parse(t);
         !t || "twocolumn" != e && "twocolumn" != t["data-layout"] || (document.querySelector(".navbar-menu").innerHTML = u, (o = document.createElement("ul")).innerHTML = '<a href="#" class="logo"><img src="assets/images/logo-sm.png" alt="" height="22"></a>', Array.from(document.getElementById("navbar-nav").querySelectorAll(".menu-link")).forEach(function(e) {
             o.className = "twocolumn-iconview";
@@ -90,7 +90,7 @@
     function S() {
         feather.replace();
         var e = document.documentElement.clientWidth,
-            e = (e < 1025 && 767 < e ? (document.body.classList.remove("twocolumn-panel"), "twocolumn" == sessionStorage.getItem("data-layout") && (document.documentElement.setAttribute("data-layout", "twocolumn"), document.getElementById("customizer-layout03") && document.getElementById("customizer-layout03").click(), f(), L(), E()), "vertical" == sessionStorage.getItem("data-layout") && document.documentElement.setAttribute("data-sidebar-size", "sm"), document.querySelector(".hamburger-icon") && document.querySelector(".hamburger-icon").classList.add("open")) : 1025 <= e ? (document.body.classList.remove("twocolumn-panel"), "twocolumn" == sessionStorage.getItem("data-layout") && (document.documentElement.setAttribute("data-layout", "twocolumn"), document.getElementById("customizer-layout03") && document.getElementById("customizer-layout03").click(), f(), L(), E()), "vertical" == sessionStorage.getItem("data-layout") && document.documentElement.setAttribute("data-sidebar-size", sessionStorage.getItem("data-sidebar-size")), document.querySelector(".hamburger-icon") && document.querySelector(".hamburger-icon").classList.remove("open")) : e <= 767 && (document.body.classList.remove("vertical-sidebar-enable"), document.body.classList.add("twocolumn-panel"), "twocolumn" == sessionStorage.getItem("data-layout") && (document.documentElement.setAttribute("data-layout", "vertical"), z("vertical"), E()), "horizontal" != sessionStorage.getItem("data-layout") && document.documentElement.setAttribute("data-sidebar-size", "lg"), document.querySelector(".hamburger-icon") && document.querySelector(".hamburger-icon").classList.add("open")), document.querySelectorAll("#navbar-nav > li.nav-item"));
+            e = (e < 1025 && 767 < e ? (document.body.classList.remove("twocolumn-panel"), "twocolumn" == localStorage.getItem("data-layout") && (document.documentElement.setAttribute("data-layout", "twocolumn"), document.getElementById("customizer-layout03") && document.getElementById("customizer-layout03").click(), f(), L(), E()), "vertical" == localStorage.getItem("data-layout") && document.documentElement.setAttribute("data-sidebar-size", "sm"), document.querySelector(".hamburger-icon") && document.querySelector(".hamburger-icon").classList.add("open")) : 1025 <= e ? (document.body.classList.remove("twocolumn-panel"), "twocolumn" == localStorage.getItem("data-layout") && (document.documentElement.setAttribute("data-layout", "twocolumn"), document.getElementById("customizer-layout03") && document.getElementById("customizer-layout03").click(), f(), L(), E()), "vertical" == localStorage.getItem("data-layout") && document.documentElement.setAttribute("data-sidebar-size", localStorage.getItem("data-sidebar-size")), document.querySelector(".hamburger-icon") && document.querySelector(".hamburger-icon").classList.remove("open")) : e <= 767 && (document.body.classList.remove("vertical-sidebar-enable"), document.body.classList.add("twocolumn-panel"), "twocolumn" == localStorage.getItem("data-layout") && (document.documentElement.setAttribute("data-layout", "vertical"), z("vertical"), E()), "horizontal" != localStorage.getItem("data-layout") && document.documentElement.setAttribute("data-sidebar-size", "lg"), document.querySelector(".hamburger-icon") && document.querySelector(".hamburger-icon").classList.add("open")), document.querySelectorAll("#navbar-nav > li.nav-item"));
         Array.from(e).forEach(function(e) {
             e.addEventListener("click", I.bind(this), !1), e.addEventListener("mouseover", I.bind(this), !1)
         })
@@ -140,11 +140,11 @@
             var e;
             ("twocolumn" == document.documentElement.getAttribute("data-layout") ? L : B)(), (e = document.getElementsByClassName("vertical-overlay")) && Array.from(e).forEach(function(e) {
                 e.addEventListener("click", function() {
-                    document.body.classList.remove("vertical-sidebar-enable"), "twocolumn" == sessionStorage.getItem("data-layout") ? document.body.classList.add("twocolumn-panel") : document.documentElement.setAttribute("data-sidebar-size", sessionStorage.getItem("data-sidebar-size"))
+                    document.body.classList.remove("vertical-sidebar-enable"), "twocolumn" == localStorage.getItem("data-layout") ? document.body.classList.add("twocolumn-panel") : document.documentElement.setAttribute("data-sidebar-size", localStorage.getItem("data-sidebar-size"))
                 })
             }), q()
         }), document.getElementById("topnav-hamburger-icon") && document.getElementById("topnav-hamburger-icon").addEventListener("click", w);
-        var e = sessionStorage.getItem("defaultAttribute"),
+        var e = localStorage.getItem("defaultAttribute"),
             e = JSON.parse(e),
             t = document.documentElement.clientWidth;
         "twocolumn" == e["data-layout"] && t < 767 && Array.from(document.getElementById("two-column-menu").querySelectorAll("li")).forEach(function(e) {
@@ -218,154 +218,154 @@
         if (e == e) {
             switch (e["data-layout"]) {
                 case "vertical":
-                    C("data-layout", "vertical"), sessionStorage.setItem("data-layout", "vertical"), document.documentElement.setAttribute("data-layout", "vertical"), z("vertical"), E();
+                    C("data-layout", "vertical"), localStorage.setItem("data-layout", "vertical"), document.documentElement.setAttribute("data-layout", "vertical"), z("vertical"), E();
                     break;
                 case "horizontal":
-                    C("data-layout", "horizontal"), sessionStorage.setItem("data-layout", "horizontal"), document.documentElement.setAttribute("data-layout", "horizontal"), z("horizontal");
+                    C("data-layout", "horizontal"), localStorage.setItem("data-layout", "horizontal"), document.documentElement.setAttribute("data-layout", "horizontal"), z("horizontal");
                     break;
                 case "twocolumn":
-                    C("data-layout", "twocolumn"), sessionStorage.setItem("data-layout", "twocolumn"), document.documentElement.setAttribute("data-layout", "twocolumn"), z("twocolumn");
+                    C("data-layout", "twocolumn"), localStorage.setItem("data-layout", "twocolumn"), document.documentElement.setAttribute("data-layout", "twocolumn"), z("twocolumn");
                     break;
                 default:
-                    "vertical" == sessionStorage.getItem("data-layout") && sessionStorage.getItem("data-layout") ? (C("data-layout", "vertical"), sessionStorage.setItem("data-layout", "vertical"), document.documentElement.setAttribute("data-layout", "vertical"), z("vertical"), E()) : "horizontal" == sessionStorage.getItem("data-layout") ? (C("data-layout", "horizontal"), sessionStorage.setItem("data-layout", "horizontal"), document.documentElement.setAttribute("data-layout", "horizontal"), z("horizontal")) : "twocolumn" == sessionStorage.getItem("data-layout") && (C("data-layout", "twocolumn"), sessionStorage.setItem("data-layout", "twocolumn"), document.documentElement.setAttribute("data-layout", "twocolumn"), z("twocolumn"))
+                    "vertical" == localStorage.getItem("data-layout") && localStorage.getItem("data-layout") ? (C("data-layout", "vertical"), localStorage.setItem("data-layout", "vertical"), document.documentElement.setAttribute("data-layout", "vertical"), z("vertical"), E()) : "horizontal" == localStorage.getItem("data-layout") ? (C("data-layout", "horizontal"), localStorage.setItem("data-layout", "horizontal"), document.documentElement.setAttribute("data-layout", "horizontal"), z("horizontal")) : "twocolumn" == localStorage.getItem("data-layout") && (C("data-layout", "twocolumn"), localStorage.setItem("data-layout", "twocolumn"), document.documentElement.setAttribute("data-layout", "twocolumn"), z("twocolumn"))
             }
             switch (e["data-topbar"]) {
                 case "light":
-                    C("data-topbar", "light"), sessionStorage.setItem("data-topbar", "light"), document.documentElement.setAttribute("data-topbar", "light");
+                    C("data-topbar", "light"), localStorage.setItem("data-topbar", "light"), document.documentElement.setAttribute("data-topbar", "light");
                     break;
                 case "dark":
-                    C("data-topbar", "dark"), sessionStorage.setItem("data-topbar", "dark"), document.documentElement.setAttribute("data-topbar", "dark");
+                    C("data-topbar", "dark"), localStorage.setItem("data-topbar", "dark"), document.documentElement.setAttribute("data-topbar", "dark");
                     break;
                 default:
-                    "dark" == sessionStorage.getItem("data-topbar") ? (C("data-topbar", "dark"), sessionStorage.setItem("data-topbar", "dark"), document.documentElement.setAttribute("data-topbar", "dark")) : (C("data-topbar", "light"), sessionStorage.setItem("data-topbar", "light"), document.documentElement.setAttribute("data-topbar", "light"))
+                    "dark" == localStorage.getItem("data-topbar") ? (C("data-topbar", "dark"), localStorage.setItem("data-topbar", "dark"), document.documentElement.setAttribute("data-topbar", "dark")) : (C("data-topbar", "light"), localStorage.setItem("data-topbar", "light"), document.documentElement.setAttribute("data-topbar", "light"))
             }
             switch (e["data-layout-style"]) {
                 case "default":
-                    C("data-layout-style", "default"), sessionStorage.setItem("data-layout-style", "default"), document.documentElement.setAttribute("data-layout-style", "default");
+                    C("data-layout-style", "default"), localStorage.setItem("data-layout-style", "default"), document.documentElement.setAttribute("data-layout-style", "default");
                     break;
                 case "detached":
-                    C("data-layout-style", "detached"), sessionStorage.setItem("data-layout-style", "detached"), document.documentElement.setAttribute("data-layout-style", "detached");
+                    C("data-layout-style", "detached"), localStorage.setItem("data-layout-style", "detached"), document.documentElement.setAttribute("data-layout-style", "detached");
                     break;
                 default:
-                    "detached" == sessionStorage.getItem("data-layout-style") ? (C("data-layout-style", "detached"), sessionStorage.setItem("data-layout-style", "detached"), document.documentElement.setAttribute("data-layout-style", "detached")) : (C("data-layout-style", "default"), sessionStorage.setItem("data-layout-style", "default"), document.documentElement.setAttribute("data-layout-style", "default"))
+                    "detached" == localStorage.getItem("data-layout-style") ? (C("data-layout-style", "detached"), localStorage.setItem("data-layout-style", "detached"), document.documentElement.setAttribute("data-layout-style", "detached")) : (C("data-layout-style", "default"), localStorage.setItem("data-layout-style", "default"), document.documentElement.setAttribute("data-layout-style", "default"))
             }
             switch (e["data-sidebar-size"]) {
                 case "lg":
-                    C("data-sidebar-size", "lg"), document.documentElement.setAttribute("data-sidebar-size", "lg"), sessionStorage.setItem("data-sidebar-size", "lg");
+                    C("data-sidebar-size", "lg"), document.documentElement.setAttribute("data-sidebar-size", "lg"), localStorage.setItem("data-sidebar-size", "lg");
                     break;
                 case "sm":
-                    C("data-sidebar-size", "sm"), document.documentElement.setAttribute("data-sidebar-size", "sm"), sessionStorage.setItem("data-sidebar-size", "sm");
+                    C("data-sidebar-size", "sm"), document.documentElement.setAttribute("data-sidebar-size", "sm"), localStorage.setItem("data-sidebar-size", "sm");
                     break;
                 case "md":
-                    C("data-sidebar-size", "md"), document.documentElement.setAttribute("data-sidebar-size", "md"), sessionStorage.setItem("data-sidebar-size", "md");
+                    C("data-sidebar-size", "md"), document.documentElement.setAttribute("data-sidebar-size", "md"), localStorage.setItem("data-sidebar-size", "md");
                     break;
                 case "sm-hover":
-                    C("data-sidebar-size", "sm-hover"), document.documentElement.setAttribute("data-sidebar-size", "sm-hover"), sessionStorage.setItem("data-sidebar-size", "sm-hover");
+                    C("data-sidebar-size", "sm-hover"), document.documentElement.setAttribute("data-sidebar-size", "sm-hover"), localStorage.setItem("data-sidebar-size", "sm-hover");
                     break;
                 default:
-                    "sm" == sessionStorage.getItem("data-sidebar-size") ? (document.documentElement.setAttribute("data-sidebar-size", "sm"), C("data-sidebar-size", "sm"), sessionStorage.setItem("data-sidebar-size", "sm")) : "md" == sessionStorage.getItem("data-sidebar-size") ? (document.documentElement.setAttribute("data-sidebar-size", "md"), C("data-sidebar-size", "md"), sessionStorage.setItem("data-sidebar-size", "md")) : "sm-hover" == sessionStorage.getItem("data-sidebar-size") ? (document.documentElement.setAttribute("data-sidebar-size", "sm-hover"), C("data-sidebar-size", "sm-hover"), sessionStorage.setItem("data-sidebar-size", "sm-hover")) : (document.documentElement.setAttribute("data-sidebar-size", "lg"), C("data-sidebar-size", "lg"), sessionStorage.setItem("data-sidebar-size", "lg"))
+                    "sm" == localStorage.getItem("data-sidebar-size") ? (document.documentElement.setAttribute("data-sidebar-size", "sm"), C("data-sidebar-size", "sm"), localStorage.setItem("data-sidebar-size", "sm")) : "md" == localStorage.getItem("data-sidebar-size") ? (document.documentElement.setAttribute("data-sidebar-size", "md"), C("data-sidebar-size", "md"), localStorage.setItem("data-sidebar-size", "md")) : "sm-hover" == localStorage.getItem("data-sidebar-size") ? (document.documentElement.setAttribute("data-sidebar-size", "sm-hover"), C("data-sidebar-size", "sm-hover"), localStorage.setItem("data-sidebar-size", "sm-hover")) : (document.documentElement.setAttribute("data-sidebar-size", "lg"), C("data-sidebar-size", "lg"), localStorage.setItem("data-sidebar-size", "lg"))
             }
             switch (e["data-layout-mode"]) {
                 case "light":
-                    C("data-layout-mode", "light"), document.documentElement.setAttribute("data-layout-mode", "light"), sessionStorage.setItem("data-layout-mode", "light");
+                    C("data-layout-mode", "light"), document.documentElement.setAttribute("data-layout-mode", "light"), localStorage.setItem("data-layout-mode", "light");
                     break;
                 case "dark":
-                    C("data-layout-mode", "dark"), document.documentElement.setAttribute("data-layout-mode", "dark"), sessionStorage.setItem("data-layout-mode", "dark");
+                    C("data-layout-mode", "dark"), document.documentElement.setAttribute("data-layout-mode", "dark"), localStorage.setItem("data-layout-mode", "dark");
                     break;
                 default:
-                    sessionStorage.getItem("data-layout-mode") && "dark" == sessionStorage.getItem("data-layout-mode") ? (sessionStorage.setItem("data-layout-mode", "dark"), document.documentElement.setAttribute("data-layout-mode", "dark"), C("data-layout-mode", "dark")) : (sessionStorage.setItem("data-layout-mode", "light"), document.documentElement.setAttribute("data-layout-mode", "light"), C("data-layout-mode", "light"))
+                    localStorage.getItem("data-layout-mode") && "dark" == localStorage.getItem("data-layout-mode") ? (localStorage.setItem("data-layout-mode", "dark"), document.documentElement.setAttribute("data-layout-mode", "dark"), C("data-layout-mode", "dark")) : (localStorage.setItem("data-layout-mode", "light"), document.documentElement.setAttribute("data-layout-mode", "light"), C("data-layout-mode", "light"))
             }
             switch (e["data-layout-width"]) {
                 case "fluid":
-                    C("data-layout-width", "fluid"), document.documentElement.setAttribute("data-layout-width", "fluid"), sessionStorage.setItem("data-layout-width", "fluid");
+                    C("data-layout-width", "fluid"), document.documentElement.setAttribute("data-layout-width", "fluid"), localStorage.setItem("data-layout-width", "fluid");
                     break;
                 case "boxed":
-                    C("data-layout-width", "boxed"), document.documentElement.setAttribute("data-layout-width", "boxed"), sessionStorage.setItem("data-layout-width", "boxed");
+                    C("data-layout-width", "boxed"), document.documentElement.setAttribute("data-layout-width", "boxed"), localStorage.setItem("data-layout-width", "boxed");
                     break;
                 default:
-                    "boxed" == sessionStorage.getItem("data-layout-width") ? (sessionStorage.setItem("data-layout-width", "boxed"), document.documentElement.setAttribute("data-layout-width", "boxed"), C("data-layout-width", "boxed")) : (sessionStorage.setItem("data-layout-width", "fluid"), document.documentElement.setAttribute("data-layout-width", "fluid"), C("data-layout-width", "fluid"))
+                    "boxed" == localStorage.getItem("data-layout-width") ? (localStorage.setItem("data-layout-width", "boxed"), document.documentElement.setAttribute("data-layout-width", "boxed"), C("data-layout-width", "boxed")) : (localStorage.setItem("data-layout-width", "fluid"), document.documentElement.setAttribute("data-layout-width", "fluid"), C("data-layout-width", "fluid"))
             }
             switch (e["data-sidebar"]) {
                 case "light":
-                    C("data-sidebar", "light"), sessionStorage.setItem("data-sidebar", "light"), document.documentElement.setAttribute("data-sidebar", "light");
+                    C("data-sidebar", "light"), localStorage.setItem("data-sidebar", "light"), document.documentElement.setAttribute("data-sidebar", "light");
                     break;
                 case "dark":
-                    C("data-sidebar", "dark"), sessionStorage.setItem("data-sidebar", "dark"), document.documentElement.setAttribute("data-sidebar", "dark");
+                    C("data-sidebar", "dark"), localStorage.setItem("data-sidebar", "dark"), document.documentElement.setAttribute("data-sidebar", "dark");
                     break;
                 case "gradient":
-                    C("data-sidebar", "gradient"), sessionStorage.setItem("data-sidebar", "gradient"), document.documentElement.setAttribute("data-sidebar", "gradient");
+                    C("data-sidebar", "gradient"), localStorage.setItem("data-sidebar", "gradient"), document.documentElement.setAttribute("data-sidebar", "gradient");
                     break;
                 case "gradient-2":
-                    C("data-sidebar", "gradient-2"), sessionStorage.setItem("data-sidebar", "gradient-2"), document.documentElement.setAttribute("data-sidebar", "gradient-2");
+                    C("data-sidebar", "gradient-2"), localStorage.setItem("data-sidebar", "gradient-2"), document.documentElement.setAttribute("data-sidebar", "gradient-2");
                     break;
                 case "gradient-3":
-                    C("data-sidebar", "gradient-3"), sessionStorage.setItem("data-sidebar", "gradient-3"), document.documentElement.setAttribute("data-sidebar", "gradient-3");
+                    C("data-sidebar", "gradient-3"), localStorage.setItem("data-sidebar", "gradient-3"), document.documentElement.setAttribute("data-sidebar", "gradient-3");
                     break;
                 case "gradient-4":
-                    C("data-sidebar", "gradient-4"), sessionStorage.setItem("data-sidebar", "gradient-4"), document.documentElement.setAttribute("data-sidebar", "gradient-4");
+                    C("data-sidebar", "gradient-4"), localStorage.setItem("data-sidebar", "gradient-4"), document.documentElement.setAttribute("data-sidebar", "gradient-4");
                     break;
                 default:
-                    sessionStorage.getItem("data-sidebar") && "light" == sessionStorage.getItem("data-sidebar") ? (sessionStorage.setItem("data-sidebar", "light"), C("data-sidebar", "light"), document.documentElement.setAttribute("data-sidebar", "light")) : "dark" == sessionStorage.getItem("data-sidebar") ? (sessionStorage.setItem("data-sidebar", "dark"), C("data-sidebar", "dark"), document.documentElement.setAttribute("data-sidebar", "dark")) : "gradient" == sessionStorage.getItem("data-sidebar") ? (sessionStorage.setItem("data-sidebar", "gradient"), C("data-sidebar", "gradient"), document.documentElement.setAttribute("data-sidebar", "gradient")) : "gradient-2" == sessionStorage.getItem("data-sidebar") ? (sessionStorage.setItem("data-sidebar", "gradient-2"), C("data-sidebar", "gradient-2"), document.documentElement.setAttribute("data-sidebar", "gradient-2")) : "gradient-3" == sessionStorage.getItem("data-sidebar") ? (sessionStorage.setItem("data-sidebar", "gradient-3"), C("data-sidebar", "gradient-3"), document.documentElement.setAttribute("data-sidebar", "gradient-3")) : "gradient-4" == sessionStorage.getItem("data-sidebar") && (sessionStorage.setItem("data-sidebar", "gradient-4"), C("data-sidebar", "gradient-4"), document.documentElement.setAttribute("data-sidebar", "gradient-4"))
+                    localStorage.getItem("data-sidebar") && "light" == localStorage.getItem("data-sidebar") ? (localStorage.setItem("data-sidebar", "light"), C("data-sidebar", "light"), document.documentElement.setAttribute("data-sidebar", "light")) : "dark" == localStorage.getItem("data-sidebar") ? (localStorage.setItem("data-sidebar", "dark"), C("data-sidebar", "dark"), document.documentElement.setAttribute("data-sidebar", "dark")) : "gradient" == localStorage.getItem("data-sidebar") ? (localStorage.setItem("data-sidebar", "gradient"), C("data-sidebar", "gradient"), document.documentElement.setAttribute("data-sidebar", "gradient")) : "gradient-2" == localStorage.getItem("data-sidebar") ? (localStorage.setItem("data-sidebar", "gradient-2"), C("data-sidebar", "gradient-2"), document.documentElement.setAttribute("data-sidebar", "gradient-2")) : "gradient-3" == localStorage.getItem("data-sidebar") ? (localStorage.setItem("data-sidebar", "gradient-3"), C("data-sidebar", "gradient-3"), document.documentElement.setAttribute("data-sidebar", "gradient-3")) : "gradient-4" == localStorage.getItem("data-sidebar") && (localStorage.setItem("data-sidebar", "gradient-4"), C("data-sidebar", "gradient-4"), document.documentElement.setAttribute("data-sidebar", "gradient-4"))
             }
             switch (e["data-sidebar-image"]) {
                 case "none":
-                    C("data-sidebar-image", "none"), sessionStorage.setItem("data-sidebar-image", "none"), document.documentElement.setAttribute("data-sidebar-image", "none");
+                    C("data-sidebar-image", "none"), localStorage.setItem("data-sidebar-image", "none"), document.documentElement.setAttribute("data-sidebar-image", "none");
                     break;
                 case "img-1":
-                    C("data-sidebar-image", "img-1"), sessionStorage.setItem("data-sidebar-image", "img-1"), document.documentElement.setAttribute("data-sidebar-image", "img-1");
+                    C("data-sidebar-image", "img-1"), localStorage.setItem("data-sidebar-image", "img-1"), document.documentElement.setAttribute("data-sidebar-image", "img-1");
                     break;
                 case "img-2":
-                    C("data-sidebar-image", "img-2"), sessionStorage.setItem("data-sidebar-image", "img-2"), document.documentElement.setAttribute("data-sidebar-image", "img-2");
+                    C("data-sidebar-image", "img-2"), localStorage.setItem("data-sidebar-image", "img-2"), document.documentElement.setAttribute("data-sidebar-image", "img-2");
                     break;
                 case "img-3":
-                    C("data-sidebar-image", "img-3"), sessionStorage.setItem("data-sidebar-image", "img-3"), document.documentElement.setAttribute("data-sidebar-image", "img-3");
+                    C("data-sidebar-image", "img-3"), localStorage.setItem("data-sidebar-image", "img-3"), document.documentElement.setAttribute("data-sidebar-image", "img-3");
                     break;
                 case "img-4":
-                    C("data-sidebar-image", "img-4"), sessionStorage.setItem("data-sidebar-image", "img-4"), document.documentElement.setAttribute("data-sidebar-image", "img-4");
+                    C("data-sidebar-image", "img-4"), localStorage.setItem("data-sidebar-image", "img-4"), document.documentElement.setAttribute("data-sidebar-image", "img-4");
                     break;
                 default:
-                    sessionStorage.getItem("data-sidebar-image") && "none" == sessionStorage.getItem("data-sidebar-image") ? (sessionStorage.setItem("data-sidebar-image", "none"), C("data-sidebar-image", "none"), document.documentElement.setAttribute("data-sidebar-image", "none")) : "img-1" == sessionStorage.getItem("data-sidebar-image") ? (sessionStorage.setItem("data-sidebar-image", "img-1"), C("data-sidebar-image", "img-1"), document.documentElement.setAttribute("data-sidebar-image", "img-2")) : "img-2" == sessionStorage.getItem("data-sidebar-image") ? (sessionStorage.setItem("data-sidebar-image", "img-2"), C("data-sidebar-image", "img-2"), document.documentElement.setAttribute("data-sidebar-image", "img-2")) : "img-3" == sessionStorage.getItem("data-sidebar-image") ? (sessionStorage.setItem("data-sidebar-image", "img-3"), C("data-sidebar-image", "img-3"), document.documentElement.setAttribute("data-sidebar-image", "img-3")) : "img-4" == sessionStorage.getItem("data-sidebar-image") && (sessionStorage.setItem("data-sidebar-image", "img-4"), C("data-sidebar-image", "img-4"), document.documentElement.setAttribute("data-sidebar-image", "img-4"))
+                    localStorage.getItem("data-sidebar-image") && "none" == localStorage.getItem("data-sidebar-image") ? (localStorage.setItem("data-sidebar-image", "none"), C("data-sidebar-image", "none"), document.documentElement.setAttribute("data-sidebar-image", "none")) : "img-1" == localStorage.getItem("data-sidebar-image") ? (localStorage.setItem("data-sidebar-image", "img-1"), C("data-sidebar-image", "img-1"), document.documentElement.setAttribute("data-sidebar-image", "img-2")) : "img-2" == localStorage.getItem("data-sidebar-image") ? (localStorage.setItem("data-sidebar-image", "img-2"), C("data-sidebar-image", "img-2"), document.documentElement.setAttribute("data-sidebar-image", "img-2")) : "img-3" == localStorage.getItem("data-sidebar-image") ? (localStorage.setItem("data-sidebar-image", "img-3"), C("data-sidebar-image", "img-3"), document.documentElement.setAttribute("data-sidebar-image", "img-3")) : "img-4" == localStorage.getItem("data-sidebar-image") && (localStorage.setItem("data-sidebar-image", "img-4"), C("data-sidebar-image", "img-4"), document.documentElement.setAttribute("data-sidebar-image", "img-4"))
             }
             switch (e["data-layout-position"]) {
                 case "fixed":
-                    C("data-layout-position", "fixed"), sessionStorage.setItem("data-layout-position", "fixed"), document.documentElement.setAttribute("data-layout-position", "fixed");
+                    C("data-layout-position", "fixed"), localStorage.setItem("data-layout-position", "fixed"), document.documentElement.setAttribute("data-layout-position", "fixed");
                     break;
                 case "scrollable":
-                    C("data-layout-position", "scrollable"), sessionStorage.setItem("data-layout-position", "scrollable"), document.documentElement.setAttribute("data-layout-position", "scrollable");
+                    C("data-layout-position", "scrollable"), localStorage.setItem("data-layout-position", "scrollable"), document.documentElement.setAttribute("data-layout-position", "scrollable");
                     break;
                 default:
-                    sessionStorage.getItem("data-layout-position") && "scrollable" == sessionStorage.getItem("data-layout-position") ? (C("data-layout-position", "scrollable"), sessionStorage.setItem("data-layout-position", "scrollable"), document.documentElement.setAttribute("data-layout-position", "scrollable")) : (C("data-layout-position", "fixed"), sessionStorage.setItem("data-layout-position", "fixed"), document.documentElement.setAttribute("data-layout-position", "fixed"))
+                    localStorage.getItem("data-layout-position") && "scrollable" == localStorage.getItem("data-layout-position") ? (C("data-layout-position", "scrollable"), localStorage.setItem("data-layout-position", "scrollable"), document.documentElement.setAttribute("data-layout-position", "scrollable")) : (C("data-layout-position", "fixed"), localStorage.setItem("data-layout-position", "fixed"), document.documentElement.setAttribute("data-layout-position", "fixed"))
             }
             switch (e["data-preloader"]) {
                 case "disable":
-                    C("data-preloader", "disable"), sessionStorage.setItem("data-preloader", "disable"), document.documentElement.setAttribute("data-preloader", "disable");
+                    C("data-preloader", "disable"), localStorage.setItem("data-preloader", "disable"), document.documentElement.setAttribute("data-preloader", "disable");
                     break;
                 case "enable":
-                    C("data-preloader", "enable"), sessionStorage.setItem("data-preloader", "enable"), document.documentElement.setAttribute("data-preloader", "enable"), (t = document.getElementById("preloader")) && window.addEventListener("load", function() {
+                    C("data-preloader", "enable"), localStorage.setItem("data-preloader", "enable"), document.documentElement.setAttribute("data-preloader", "enable"), (t = document.getElementById("preloader")) && window.addEventListener("load", function() {
                         t.style.opacity = "0", t.style.visibility = "hidden"
                     });
                     break;
                 default:
                     var t;
-                    sessionStorage.getItem("data-preloader") && "disable" == sessionStorage.getItem("data-preloader") ? (C("data-preloader", "disable"), sessionStorage.setItem("data-preloader", "disable"), document.documentElement.setAttribute("data-preloader", "disable")) : "enable" == sessionStorage.getItem("data-preloader") ? (C("data-preloader", "enable"), sessionStorage.setItem("data-preloader", "enable"), document.documentElement.setAttribute("data-preloader", "enable"), (t = document.getElementById("preloader")) && window.addEventListener("load", function() {
+                    localStorage.getItem("data-preloader") && "disable" == localStorage.getItem("data-preloader") ? (C("data-preloader", "disable"), localStorage.setItem("data-preloader", "disable"), document.documentElement.setAttribute("data-preloader", "disable")) : "enable" == localStorage.getItem("data-preloader") ? (C("data-preloader", "enable"), localStorage.setItem("data-preloader", "enable"), document.documentElement.setAttribute("data-preloader", "enable"), (t = document.getElementById("preloader")) && window.addEventListener("load", function() {
                         t.style.opacity = "0", t.style.visibility = "hidden"
                     })) : document.documentElement.setAttribute("data-preloader", "disable")
             }
             switch (e["data-body-image"]) {
                 case "img-1":
-                    C("data-body-image", "img-1"), sessionStorage.setItem("data-sidebabodyr-image", "img-1"), document.documentElement.setAttribute("data-body-image", "img-1"), document.getElementById("theme-settings-offcanvas") && document.documentElement.removeAttribute("data-sidebar-image");
+                    C("data-body-image", "img-1"), localStorage.setItem("data-sidebabodyr-image", "img-1"), document.documentElement.setAttribute("data-body-image", "img-1"), document.getElementById("theme-settings-offcanvas") && document.documentElement.removeAttribute("data-sidebar-image");
                     break;
                 case "img-2":
-                    C("data-body-image", "img-2"), sessionStorage.setItem("data-body-image", "img-2"), document.documentElement.setAttribute("data-body-image", "img-2");
+                    C("data-body-image", "img-2"), localStorage.setItem("data-body-image", "img-2"), document.documentElement.setAttribute("data-body-image", "img-2");
                     break;
                 case "img-3":
-                    C("data-body-image", "img-3"), sessionStorage.setItem("data-body-image", "img-3"), document.documentElement.setAttribute("data-body-image", "img-3");
+                    C("data-body-image", "img-3"), localStorage.setItem("data-body-image", "img-3"), document.documentElement.setAttribute("data-body-image", "img-3");
                     break;
                 case "none":
-                    C("data-body-image", "none"), sessionStorage.setItem("data-body-image", "none"), document.documentElement.setAttribute("data-body-image", "none");
+                    C("data-body-image", "none"), localStorage.setItem("data-body-image", "none"), document.documentElement.setAttribute("data-body-image", "none");
                     break;
                 default:
-                    sessionStorage.getItem("data-body-image") && "img-1" == sessionStorage.getItem("data-body-image") ? (sessionStorage.setItem("data-body-image", "img-1"), C("data-body-image", "img-1"), document.documentElement.setAttribute("data-body-image", "img-1"), document.getElementById("theme-settings-offcanvas") && (document.getElementById("sidebar-img").style.display = "none", document.documentElement.removeAttribute("data-sidebar-image"))) : "img-2" == sessionStorage.getItem("data-body-image") ? (sessionStorage.setItem("data-body-image", "img-2"), C("data-body-image", "img-2"), document.documentElement.setAttribute("data-body-image", "img-2")) : "img-3" == sessionStorage.getItem("data-body-image") ? (sessionStorage.setItem("data-body-image", "img-3"), C("data-body-image", "img-3"), document.documentElement.setAttribute("data-body-image", "img-3")) : "none" == sessionStorage.getItem("data-body-image") && (sessionStorage.setItem("data-body-image", "none"), C("data-body-image", "none"), document.documentElement.setAttribute("data-body-image", "none"))
+                    localStorage.getItem("data-body-image") && "img-1" == localStorage.getItem("data-body-image") ? (localStorage.setItem("data-body-image", "img-1"), C("data-body-image", "img-1"), document.documentElement.setAttribute("data-body-image", "img-1"), document.getElementById("theme-settings-offcanvas") && (document.getElementById("sidebar-img").style.display = "none", document.documentElement.removeAttribute("data-sidebar-image"))) : "img-2" == localStorage.getItem("data-body-image") ? (localStorage.setItem("data-body-image", "img-2"), C("data-body-image", "img-2"), document.documentElement.setAttribute("data-body-image", "img-2")) : "img-3" == localStorage.getItem("data-body-image") ? (localStorage.setItem("data-body-image", "img-3"), C("data-body-image", "img-3"), document.documentElement.setAttribute("data-body-image", "img-3")) : "none" == localStorage.getItem("data-body-image") && (localStorage.setItem("data-body-image", "none"), C("data-body-image", "none"), document.documentElement.setAttribute("data-body-image", "none"))
             }
         }
     }
@@ -383,7 +383,7 @@
         Array.from(document.querySelectorAll("input[name=" + a + "]")).forEach(function(t) {
             e == t.value ? t.checked = !0 : t.checked = !1, t.addEventListener("change", function() {
                 var e;
-                document.documentElement.setAttribute(a, t.value), sessionStorage.setItem(a, t.value), "data-layout-width" == a && "boxed" == t.value ? (document.documentElement.setAttribute("data-sidebar-size", "sm-hover"), sessionStorage.setItem("data-sidebar-size", "sm-hover"), document.getElementById("sidebar-size-small-hover").checked = !0) : "data-layout-width" == a && "fluid" == t.value && (document.documentElement.setAttribute("data-sidebar-size", "lg"), sessionStorage.setItem("data-sidebar-size", "lg"), document.getElementById("sidebar-size-default").checked = !0), "data-layout" == a && ("vertical" == t.value ? (z("vertical"), E(), feather.replace()) : "horizontal" == t.value ? (document.getElementById("sidebarimg-none") && document.getElementById("sidebarimg-none").click(), z("horizontal"), feather.replace()) : "twocolumn" == t.value && (z("twocolumn"), document.documentElement.setAttribute("data-layout-width", "fluid"), document.getElementById("layout-width-fluid").click(), f(), L(), E(), feather.replace())), "data-preloader" == a && "enable" == t.value ? (document.documentElement.setAttribute("data-preloader", "enable"), (e = document.getElementById("preloader")) && setTimeout(function() {
+                document.documentElement.setAttribute(a, t.value), localStorage.setItem(a, t.value), "data-layout-width" == a && "boxed" == t.value ? (document.documentElement.setAttribute("data-sidebar-size", "sm-hover"), localStorage.setItem("data-sidebar-size", "sm-hover"), document.getElementById("sidebar-size-small-hover").checked = !0) : "data-layout-width" == a && "fluid" == t.value && (document.documentElement.setAttribute("data-sidebar-size", "lg"), localStorage.setItem("data-sidebar-size", "lg"), document.getElementById("sidebar-size-default").checked = !0), "data-layout" == a && ("vertical" == t.value ? (z("vertical"), E(), feather.replace()) : "horizontal" == t.value ? (document.getElementById("sidebarimg-none") && document.getElementById("sidebarimg-none").click(), z("horizontal"), feather.replace()) : "twocolumn" == t.value && (z("twocolumn"), document.documentElement.setAttribute("data-layout-width", "fluid"), document.getElementById("layout-width-fluid").click(), f(), L(), E(), feather.replace())), "data-preloader" == a && "enable" == t.value ? (document.documentElement.setAttribute("data-preloader", "enable"), (e = document.getElementById("preloader")) && setTimeout(function() {
                     e.style.opacity = "0", e.style.visibility = "hidden"
                 }, 1e3), document.getElementById("customizerclose-btn").click()) : "data-preloader" == a && "disable" == t.value && (document.documentElement.setAttribute("data-preloader", "disable"), document.getElementById("customizerclose-btn").click())
             })
@@ -421,10 +421,10 @@
         var e;
         "horizontal" !== document.documentElement.getAttribute("data-layout") && (document.getElementById("navbar-nav") && (e = new SimpleBar(document.getElementById("navbar-nav"))) && e.getContentElement(), document.getElementsByClassName("twocolumn-iconview")[0] && (e = new SimpleBar(document.getElementsByClassName("twocolumn-iconview")[0])) && e.getContentElement(), clearTimeout(c))
     }
-    sessionStorage.getItem("defaultAttribute") ? ((a = {})["data-layout"] = sessionStorage.getItem("data-layout"), a["data-sidebar-size"] = sessionStorage.getItem("data-sidebar-size"), a["data-layout-mode"] = sessionStorage.getItem("data-layout-mode"), a["data-layout-width"] = sessionStorage.getItem("data-layout-width"), a["data-sidebar"] = sessionStorage.getItem("data-sidebar"), a["data-sidebar-image"] = sessionStorage.getItem("data-sidebar-image"), a["data-layout-position"] = sessionStorage.getItem("data-layout-position"), a["data-layout-style"] = sessionStorage.getItem("data-layout-style"), a["data-topbar"] = sessionStorage.getItem("data-topbar"), a["data-preloader"] = sessionStorage.getItem("data-preloader"), a["data-body-image"] = sessionStorage.getItem("data-body-image"), x(a)) : (i = document.documentElement.attributes, a = {}, Array.from(i).forEach(function(e) {
+    localStorage.getItem("defaultAttribute") ? ((a = {})["data-layout"] = localStorage.getItem("data-layout"), a["data-sidebar-size"] = localStorage.getItem("data-sidebar-size"), a["data-layout-mode"] = localStorage.getItem("data-layout-mode"), a["data-layout-width"] = localStorage.getItem("data-layout-width"), a["data-sidebar"] = localStorage.getItem("data-sidebar"), a["data-sidebar-image"] = localStorage.getItem("data-sidebar-image"), a["data-layout-position"] = localStorage.getItem("data-layout-position"), a["data-layout-style"] = localStorage.getItem("data-layout-style"), a["data-topbar"] = localStorage.getItem("data-topbar"), a["data-preloader"] = localStorage.getItem("data-preloader"), a["data-body-image"] = localStorage.getItem("data-body-image"), x(a)) : (i = document.documentElement.attributes, a = {}, Array.from(i).forEach(function(e) {
         var t;
-        e && e.nodeName && "undefined" != e.nodeName && (t = e.nodeName, a[t] = e.nodeValue, sessionStorage.setItem(t, e.nodeValue))
-    }), sessionStorage.setItem("defaultAttribute", JSON.stringify(a)), x(a), (i = document.querySelector('.btn[data-bs-target="#theme-settings-offcanvas"]')) && i.click()), f(), o = document.getElementById("search-close-options"), s = document.getElementById("search-dropdown"), (d = document.getElementById("search-options")) && (d.addEventListener("focus", function() {
+        e && e.nodeName && "undefined" != e.nodeName && (t = e.nodeName, a[t] = e.nodeValue, localStorage.setItem(t, e.nodeValue))
+    }), localStorage.setItem("defaultAttribute", JSON.stringify(a)), x(a), (i = document.querySelector('.btn[data-bs-target="#theme-settings-offcanvas"]')) && i.click()), f(), o = document.getElementById("search-close-options"), s = document.getElementById("search-dropdown"), (d = document.getElementById("search-options")) && (d.addEventListener("focus", function() {
         0 < d.value.length ? (s.classList.add("show"), o.classList.remove("d-none")) : (s.classList.remove("show"), o.classList.add("d-none"))
     }), d.addEventListener("keyup", function(e) {
         var n, t;
@@ -465,7 +465,7 @@
     }), [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]')).map(function(e) {
         return new bootstrap.Popover(e)
     }), document.getElementById("reset-layout") && document.getElementById("reset-layout").addEventListener("click", function() {
-        sessionStorage.clear(), window.location.reload()
+        localStorage.clear(), window.location.reload()
     }), m = document.querySelectorAll("[data-toast]"), Array.from(m).forEach(function(a) {
         a.addEventListener("click", function() {
             var e = {},

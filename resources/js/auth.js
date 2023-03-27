@@ -33,7 +33,7 @@ export const login = () => {
             alert(1);
             loginState.token = 'Bearer ' + response.data.access_token;
             localStorage.setItem('token', 'Bearer ' + response.data.access_token)
-            sessionStorage.setItem('token', 'Bearer ' + response.data.access_token)
+            localStorage.setItem('token', 'Bearer ' + response.data.access_token)
             //store.setToken('Bearer ' + response.data.access_token);
             //this.$route.push({name: "MyAccount"})
             router.go({ name: "/" });

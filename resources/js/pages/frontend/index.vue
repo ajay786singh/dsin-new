@@ -113,7 +113,7 @@ export default {
 		const CartData = useShoppingStore();
 		axios.get('/api/user', {
 			headers: {
-				Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+				Authorization: 'Bearer ' + localStorage.getItem('token'),
 			},
 		}).then(res => {
 			console.log("working");
