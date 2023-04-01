@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\API\BlogApiController;
 use App\Http\Controllers\Admin\API\DealerRegistrationApiController;
 use App\Http\Controllers\Admin\API\PasswordResetApiController;
 use App\Http\Controllers\Admin\API\OrderController;
+use App\Http\Controllers\StripeController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -102,6 +103,9 @@ Route::group(['middleware'=>'jwt.verify'],function(){
 //     Route::post('order_place_detail','App\Http\Controllers\Admin\API\OrderController@order_place_detail');
 // });
 
+Route::post('payment/initiate', [StripeController::class, 'initiatePayment']);
+Route::post('payment/complete', [StripeController::class, 'completePayment']);
+Route::post('payment/failure', [StripeController::class, 'failPayment']);
 
 
 Route::controller(CategoryApiController::class)->group(function(){
@@ -123,7 +127,9 @@ Route::controller(ProductApiController::class)->group(function(){
     Route::get('new_arriaval_products','new_arriaval_products');
     Route::get('products/{pid}','products');
     Route::post('order_place_detail','order_place_detail');
-    
+    Route::get('country','country');
+    Route::post('state','state');
+    Route::post('city','city');  
 });
 
 
