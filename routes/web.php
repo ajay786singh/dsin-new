@@ -26,6 +26,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 //use App\Http\livewire\Admin\Users\Users;
 //use App\Http\livewire\Admin\Users\AddUser;
 use App\Http\Controller\API\AuthController;
+use App\Http\Controllers\StripeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -265,6 +266,9 @@ Route::post('/aiz-uploader/upload', 'App\Http\Controllers\Admin\AizUploadControl
 Route::get('/aiz-uploader/get_uploaded_files', 'App\Http\Controllers\Admin\AizUploadController@get_uploaded_files');
 Route::post('/aiz-uploader/get_file_by_ids', 'App\Http\Controllers\Admin\AizUploadController@get_preview_files');
 Route::get('/aiz-uploader/download/{id}', 'App\Http\Controllers\Admin\AizUploadController@attachment_download')->name('download_attachment');
+
+Route::get('stripe', [StripeController::class, 'stripe']);
+Route::post('stripe', [StripeController::class, 'stripePost'])->name('stripe.post');
 
 
 //payment methods

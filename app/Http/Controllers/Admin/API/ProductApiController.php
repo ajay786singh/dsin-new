@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Products;
+use App\Models\countries;
+use App\Models\cities;
+use App\Models\states;
+
 use App\Models\order_billing;
 use App\Models\items_detail;
 use App\Models\Brands;
@@ -189,8 +193,8 @@ class ProductApiController extends Controller
             'company_name'=> $request->company_name,
             'address' => $request->address,
             'address2' => $request->address2,
-            'city' => $request->city,
-            'state' => $request->state,
+            'city' => $request->selectedCity,
+            'state' => $request->selectedState,
             'zip' => $request->zip,
             'phone' => $request->phone,
             'email' => $request->email,
@@ -249,4 +253,21 @@ class ProductApiController extends Controller
 
         return response()->json(['response'=> $data]);
     }
+    public function country(Request $request)
+    {
+        $country= countries::where('id','=',101)->get();
+        return $country;
+    }
+    public function state(Request $request)
+    {
+        // dd($request);die();
+        $state = states::where('country_id','=',$request->country_id)->get();
+        return $state;
+    }
+    public function city(Request $request)
+    {
+        $city = cities::where('state_id','=',$request->state_id)->get();
+        return $city;
+    }
+
 }
